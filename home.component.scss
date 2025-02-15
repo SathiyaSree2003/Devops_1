@@ -1,0 +1,41 @@
+.navbar{
+    background-color: rgb(237, 177, 177);
+    border-radius: 0px;
+    height: 80px;
+    
+}
+.navbar ul{
+    overflow: auto;
+}
+.navbar li{
+    float:left;
+    list-style: none; 
+    margin: 30px 20px;
+    
+}
+.nav-link{
+    padding: 3px 5px;
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+}
+.navbar li a:hover{
+    color: rgb(64, 11, 11)
+}
+.login{
+    float: right;
+    color: white;
+    padding: 12px 75px;
+}
+.btn{
+    background-color: rgb(255, 255, 255);
+    color: rgb(149, 66, 66);
+    border-radius: 10px;
+    padding: 3px 17px;
+    width: 129px;
+    height: 50px;
+}
+.img_foot{
+    width: 40px;
+    height: 40px;
+    padding: 10px;
+}
