@@ -1,0 +1,116 @@
+
+-- IN operator:
+
+select * from batch_a8 where regno in (1,55,88,100);
+select count(*)from batch_a8 where regno in (1,55,88,100);
+
+select * from batch_a8 where address in ('parakkai','ooty');
+select count(*) from batch_a8 where address in ('parakkai','ooty');
+
+select * from batch_a8 where college in ('SXCCE','WCC') and dept in('MCA','MBA');
+select count(*) from batch_a8 where college in ('SXCCE','WCC') and dept in('MCA','MBA');
+
+select * from batch_a8 where dob in ('2020-08-23','2001-06-18');
+select count(*) from batch_a8 where dob in ('2020-08-23','2001-06-18');
+
+
+-- Like operator:
+
+select * from batch_a8 where stud_name like '%a'; -- ends with a
+select count(*) from batch_a8 where stud_name like '%a';
+
+select * from batch_a8 where stud_name like 'i%';-- starts with i
+select count(*) from batch_a8 where stud_name like 'i%';
+
+select * from batch_a8 where stud_name like('i%'and'y%');-- starts with i  dount
+
+
+
+select * from batch_a8 where stud_name like '%a';-- ends with a
+select count(*) from batch_a8 where stud_name like '%a';
+
+select * from batch_a8 where stud_name like '_a%';-- the second letter  is occur in the word ahalya
+select count(*) from batch_a8 where stud_name like '_a%';
+
+select * from batch_a8 where stud_name like '%a_';-- the a word is second of last letter ex: akshai a is the second letter of last
+select count(*) from batch_a8 where stud_name like '%a_';
+
+select * from batch_a8 where stud_name like '%a__';-- the a word is third of last letter ex: akash a is the third letter of last
+select count(*) from batch_a8 where stud_name like '%a__';
+
+select * from batch_a8 where stud_name like '__a%';-- the a word is second  of first letter ex: akash a is the third letter of last
+select count(*) from batch_a8 where stud_name like '%__a';
+
+-- limit query:
+
+select * from batch_a8 limit 12;
+select count(*) from batch_a8 limit 12;-- not working
+
+select * from batch_a8 order by percentage asc ;
+select count(*) from batch_a8 order by percentage asc ; -- not working
+select * from batch_a8 order by percentage asc limit 10 ; -- for view 10 records
+
+select * from batch_a8 order by percentage desc ;
+select * from batch_a8 order by percentage desc limit 10 ;
+
+
+-- SUM query:
+select sum(percentage) from batch_a8;
+
+-- avergae query:
+select avg(percentage) from batch_a8;
+
+-- count query:
+select count(percentage) from batch_a8;
+
+-- MIN query:
+select min(percentage) from batch_a8;
+
+-- Max query:
+select max(percentage) from batch_a8;
+
+
+
+-- SUBQUERY:
+select * from batch_a8 where percentage =(select min(percentage) from batch_a8); 
+
+select * from batch_a8 where percentage =(select max(percentage) from batch_a8);
+
+
+
+
+
+-- CREATE A NEW TABLE NAME IS TEST:
+
+create table test(id int, name varchar(50), college varchar(50));
+
+insert into test values(1,'jasmine',null);
+insert into test values(2,'lotus','STHC');
+insert into test values(3,null,null);
+insert into test values(4,null,'WCC');
+
+select * from test;
+
+-- for view the table and get the null records:
+
+select * from test where name is null;
+select * from test where college is null;
+select * from test where college is null and name is null;
+select * from test where college is not null and name is not null;
+
+
+-- UPDATE QUERIES:
+
+set sql_safe_updates=0;
+update test set name='sathiya' where id=3;
+select * from test;
+
+update batch_a8 set college='STHC' where regno=263 and percentage=80;
+select * from batch_a8 where regno=263;
+
+-- delete queries:
+
+delete from test where id=3;
+select * from test;
+
+
